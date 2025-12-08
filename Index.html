@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarCare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arya:wght@400;700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --brand-primary: #14B8A6;
+            --brand-secondary: #0D9488;
+            --brand-light: #CCFBF1;
+            --brand-muted: #99F6E4;
+            --brand-accent: #134E4A;
+            --support-peach: #F0FDFA;
+            --text-dark: #134E4A;
+            --muted: #5EEAD4;
+            --success-color: #14B8A6;
+            --warning-color: #FCD34D;
+            --danger-color: #EF4444;
+        }
+
+        .bg-brand-primary {
+            background-color: var(--brand-primary);
+        }
+
+        .bg-brand-secondary {
+            background-color: var(--brand-secondary);
+        }
+
+        .bg-brand-light {
+            background-color: var(--brand-light);
+        }
+
+        .bg-brand-muted {
+            background-color: var(--brand-muted);
+        }
+
+        .bg-brand-accent {
+            background-color: var(--brand-accent);
+        }
+
+        .text-brand-primary {
+            color: var(--brand-primary);
+        }
+
+        .text-brand-secondary {
+            color: var(--brand-secondary);
+        }
+
+        .text-brand-light {
+            color: var(--brand-light);
+        }
+
+        .text-brand-muted {
+            color: var(--brand-muted);
+        }
+
+        .text-brand-accent {
+            color: var(--brand-accent);
+        }
+
+        .border-brand-primary {
+            border-color: var(--brand-primary);
+        }
+
+        .border-brand-secondary {
+            border-color: var(--brand-secondary);
+        }
+
+        .border-brand-light {
+            border-color: var(--brand-light);
+        }
+
+        .border-brand-muted {
+            border-color: var(--brand-muted);
+        }
+
+        .border-brand-accent {
+            border-color: var(--brand-accent);
+        }
+
+        .font-arya {
+            font-family: 'Arya', sans-serif;
+        }
+
+        .font-inknut {
+            font-family: 'Inknut Antiqua', serif;
+        }
+
+        .font-yantra {
+            font-family: 'Yantramanav', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            scroll-behavior: smooth;
+            font-weight: 400;
+            /* Space for fixed CTA */
+        }
+
+        /* Container width control */
+        .main-container {
+            max-width: 450px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 450px) {
+            .main-container {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Creative Logo Styles */
+        .creative-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f1f0f0 0%, #eae5e5 100%);
+            border-radius: 50%;
+            overflow: visible;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) and (pointer: fine) {
+            .creative-logo:hover {
+                transform: scale(1.1) rotate(12deg);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            .creative-logo:hover .wave {
+                animation-duration: 1s;
+            }
+
+            .creative-logo:hover .sound-waves::after {
+                content: '';
+                position: absolute;
+                left: -25px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 2px;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6));
+                animation: soundTrail 1s ease-out infinite;
+            }
+        }
+
+        .creative-logo:active {
+            transform: scale(1.05);
+        }
+
+        .creative-logo:focus {
+            outline: none;
+        }
+
+        .ear-symbol {
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .sound-waves {
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 1;
+            width: 40px;
+            height: 30px;
+        }
+
+        .wave {
+            width: 5px;
+            background: linear-gradient(to bottom, rgba(9, 22, 118, 0.9), rgba(9, 45, 137, 0.4), rgba(18, 6, 77, 0.9));
+            border-radius: 1px;
+            animation: soundWaveFlow 2s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .wave:nth-child(1) {
+            height: 6px;
+            animation-delay: 0s;
+        }
+
+        .wave:nth-child(2) {
+            height: 10px;
+            animation-delay: 0.1s;
+        }
+
+        .wave:nth-child(3) {
+            height: 14px;
+            animation-delay: 0.2s;
+        }
+
+        .wave:nth-child(4) {
+            height: 10px;
+            animation-delay: 0.3s;
+        }
+
+        .wave:nth-child(5) {
+            height: 6px;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes soundWaveFlow {
+            0% {
+                opacity: 0.2;
+                transform: scaleY(0.3) translateX(-5px);
+            }
+
+            30% {
+                opacity: 0.8;
+                transform: scaleY(1) translateX(0px);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scaleY(1.2) translateX(5px);
+            }
+
+            100% {
+                opacity: 0.1;
+                transform: scaleY(0.2) translateX(15px);
+            }
+        }
+
+        /* Enhanced sound wave effect on hover - moved to media query above */
+
+        @keyframes soundTrail {
+            0% {
+                width: 0px;
+                opacity: 0;
+            }
+
+            50% {
+                width: 15px;
+                opacity: 0.8;
+            }
+
+            100% {
+                width: 25px;
+                opacity: 0;
+            }
+        }
+
+        /* FAQ Section Styles */
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid var(--brand-light);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+            border-color: var(--brand-muted);
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #CCFBF1 0%, #99F6E4 100%);
+        }
+
+        .faq-question.active {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 20px;
+            background: white;
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 16px 20px;
+            border-top: 2px solid var(--brand-light);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+        .money-back-badge {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #78350F;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+            }
+        }
+
+        /* Certificate Section Styles */
+        .certificate-badge {
+            transition: all 0.3s ease;
+            filter: grayscale(0);
+        }
+
+        .certificate-badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: drop-shadow(0 8px 16px rgba(20, 184, 166, 0.3));
+        }
+
+        .product-image-cert {
+            transition: all 0.4s ease;
+        }
+
+        .product-image-cert:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .trust-badge-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(204, 251, 241, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--brand-light);
+            box-shadow: 0 8px 24px rgba(20, 184, 166, 0.15);
+        }
+
+        /* Success Stories Section Styles */
+        .story-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fffe 100%);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.12);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-muted), var(--brand-secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.4s ease;
+        }
+
+        .story-card:hover::before {
+            opacity: 1;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(20, 184, 166, 0.25);
+        }
+
+        .customer-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4), 0 0 0 4px var(--brand-light);
+            transition: all 0.3s ease;
+        }
+
+        .customer-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(20, 184, 166, 0.5), 0 0 0 4px var(--brand-primary);
+        }
+
+        .star-rating {
+            color: #FCD34D;
+            font-size: 1.3rem;
+            text-shadow: 0 2px 4px rgba(252, 211, 77, 0.3);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--brand-light);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .customer-info {
+            background: linear-gradient(135deg, var(--brand-light) 0%, var(--brand-muted) 100%);
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(20, 184, 166, 0.15);
+        }
+
+        .verified-badge {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .review-highlight {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%);
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brand-primary);
+            margin-top: 12px;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        /* Benefits Section Styles */
+        .benefits-section {
+            background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 50%, #99F6E4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+            animation: floatBackground 8s ease-in-out infinite;
+        }
+
+        @keyframes floatBackground {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(20px, -20px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        .benefits-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 250, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(20, 184, 166, 0.2);
+            box-shadow: 0 20px 60px rgba(20, 184, 166, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fdfc 100%);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-muted), var(--brand-secondary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-item:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.3);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: iconRotate 2s linear infinite;
+            opacity: 0;
+        }
+
+        .benefit-item:hover .benefit-icon::before {
+            opacity: 1;
+        }
+
+        @keyframes iconRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .benefit-icon img {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) invert(1);
+            z-index: 2;
+            position: relative;
+        }
+
+        .benefit-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--brand-accent);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-text {
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        @media (max-width: 450px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .benefit-item {
+                padding: 16px;
+            }
+
+            .benefit-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 12px;
+            }
+
+            .benefit-icon img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .benefit-text {
+                font-size: 1rem;
+            }
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .benefits-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .benefits-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            border-radius: 2px;
+        }
+
+        .benefits-subtitle {
+            font-size: 1.2rem;
+            color: var(--brand-accent);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 450px) {
+            .benefits-title {
+                font-size: 2rem;
+            }
+
+            .benefits-subtitle {
+                font-size: 1rem;
+            }
+
+            .benefits-header {
+                margin-bottom: 32px;
+            }
+        }
+
+        .benefit-number {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-number {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="font-inknut leading-relaxed text-brand-accent"
+    style="background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 50%, #99F6E4 100%); min-height: 100vh;">
+    <div class=" w-full main-container">
+        <!-- Header -->
+        <header
+            class="text-white p-4 flex justify-between items-center gap-6 max-[450px]:p-5 max-[450px]:px-4 max-[450px]:gap-4"
+            style="background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); border-bottom: 3px solid rgba(255,255,255,0.2); box-shadow: 0 8px 25px rgba(20, 184, 166, 0.25);">
+            <div class="flex items-center justify-center gap-4 max-[450px]:gap-3 flex-1">
+                <div class="w-full flex flex-col items-center justify-center"
+                    style="background-color:rgba(255,255,255,0.2); border-radius: 15px; padding: 8px 16px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                    <div class="flex flex-row items-center justify-center gap-14 max-[450px]:gap-14">
+                        <div
+                            class="creative-logo glow-border w-14 h-14 rounded-full flex items-center justify-center shadow-brand border-2 border-brand-light border-opacity-30 overflow-visible max-[450px]:w-12 max-[450px]:h-12">
+                            <span class="ear-symbol">👂</span>
+                            <div class="sound-waves">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                        </div>
+                        <div
+                            class="font-arya text-xl font-bold max-[450px]:text-2xl cursor-default text-white drop-shadow-lg text-center leading-tight transition-transform duration-300">
+                            <div class="flex items-center justify-center gap-2 max-[450px]:gap-1 hover:scale-105">
+                                <span class="whitespace-nowrap text-white">Ear</span>
+                                <span class="whitespace-nowrap text-white">Care</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="bg-[#0D9488] text-white font-bold border-none px-6 py-3 rounded-lg text-xl cursor-pointer transition-all duration-300 hover:bg-opacity-80 max-[450px]:text-xl max-[450px]:px-4 max-[450px]:py-3 flex-shrink-0"
+                onclick="scrollToContact()">
+                <span class="relative z-10 "> 🛒 ऑर्डर करें
+                </span>
+            </button>
+        </header>
+        <!-- Main Content -->
+        <main style="background: transparent;">
+
+            <!-- Benefits Section -->
+            <section class="benefits-section py-16 px-4 max-[450px]:py-12 max-[450px]:px-3">
+                <div class="benefits-container max-w-6xl mx-auto rounded-3xl p-8 max-[450px]:p-6">
+
+                    <!-- Header -->
+                    <div class="benefits-header">
+                        <h2 class="benefits-title font-arya max-[450px]:text-2xl">
+                            🌿 फायदे & राहत
+                        </h2>
+                        <p class="benefits-subtitle font-arya">
+                            प्राकृतिक आयुर्वेदिक समाधान से पाएं कान की समस्याओं से स्थायी मुक्ति
+                        </p>
+                    </div>
+
+                    <!-- Benefits Grid -->
+                    <div class="benefits-grid">
+
+                        <!-- Benefit 1 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">1</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png" alt="सूजन कम">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                🟢 कान की सूजन और लाली को जड़ से कम करे
+                            </p>
+                        </div>
+
+                        <!-- Benefit 2 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">2</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/483/483361.png" alt="दर्द राहत">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                ⚡ तेज़ दर्द, चुभन और असहनीय जलन से तुरंत राहत
+                            </p>
+                        </div>
+
+                        <!-- Benefit 3 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">3</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2904/2904977.png" alt="इन्फेक्शन">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                🦠 Ear infection और bacterial growth को पूरी तरह साय करे
+                            </p>
+                        </div>
+
+                        <!-- Benefit 4 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">4</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/12407/12407063.png" alt="खुजली राहत">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                🌊 जलन, खुजली और कान के भारीपन से मुक्ति
+                            </p>
+                        </div>
+
+                        <!-- Benefit 5 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">5</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/12312/12312402.png" alt="गर्माहट">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                🌡️ कान के अंदर की असामान्य गर्माहट को सामान्य बनाए
+                            </p>
+                        </div>
+
+                        <!-- Benefit 6 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">6</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/6799/6799991.png"
+                                    alt="सुनने में सुधार">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                🔊 आवाज़ें फिर से crystal clear सुनाई दें और hearing improve हो
+                            </p>
+                        </div>
+
+                        <!-- Benefit 7 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">7</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3170/3170733.png" alt="पानी राहत">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                💧 बार-बार निकलने वाले चिपचिपे पानी या मवाद को बंद करे
+                            </p>
+                        </div>
+
+                        <!-- Benefit 8 -->
+                        <div class="benefit-item">
+                            <div class="benefit-number">8</div>
+                            <div class="benefit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" alt="लॉन्ग टर्म">
+                            </div>
+                            <p class="benefit-text font-arya">
+                                ✨ Natural healing से दीर्घकालिक और स्थायी सुधार
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-12 max-[450px]:mt-8">
+                        <button onclick="scrollToContact()"
+                            class="bg-brand-primary text-white font-bold border-none py-5 px-12 rounded-2xl text-2xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-xl max-[450px]:py-4 max-[450px]:px-10 max-[450px]:text-xl inline-flex items-center gap-3">
+                            <span class="text-3xl max-[450px]:text-2xl">🌿</span>
+                            <span>अभी आर्डर करें और पाएं राहत</span>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <section class="py-14 bg-gradient-to-b from-green-50 to-white">
+                <div class="max-w-6xl mx-auto px-4">
+
+                    <!-- Heading -->
+                    <h2 class="text-3xl font-bold text-center text-green-800 mb-12">
+                        Key Ingredients (मुख्य जड़ी-बूटियाँ)
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-10">
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-3deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind1.png" class="w-full h-full object-cover opacity-90" />
+
+                                    <!-- Leaf Shape Mask -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">वाचा</h3>
+                                <p class="text-green-900/90">Infection और दर्द में राहत</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[3deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind2.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">हरितकी</h3>
+                                <p class="text-green-900/90">सूजन कम करे</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-2deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind3.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">पिप्पली</h3>
+                                <p class="text-green-900/90">अंदरूनी toxins साफ करे</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[2deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind4.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">सरस्वता</h3>
+                                <p class="text-green-900/90">Hearing support</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative md:col-span-2 mx-auto w-full max-w-[420px]">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[1deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind5.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2 text-center">
+                                <h3 class="text-2xl font-semibold text-green-700">तगर</h3>
+                                <p class="text-green-900/90">बार-बार होने वाली जलन रोकता है</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Success Story Section -->
+            <section class="px-4 py-2 max-[450px]:px-3">
+                <!-- Section Heading -->
+                <div class="text-center mb-10 max-[450px]:mb-8">
+                    <h2 class="text-4xl font-bold text-brand-primary font-arya mb-4 max-[450px]:text-3xl">
+                        सफलता की कहानियां
+                    </h2>
+                    <p class="text-xl text-brand-accent font-arya max-[450px]:text-lg font-semibold">
+                        हज़ारों संतुष्ट ग्राहकों का विश्वास
+                    </p>
+                    <div class="flex items-center justify-center gap-2 mt-3">
+                        <span class="text-warning-color text-2xl">⭐⭐⭐⭐⭐</span>
+                        <span class="text-brand-accent font-arya font-semibold">4.9/5 रेटिंग</span>
+                    </div>
+                </div>
+
+                <!-- Success Stories Container -->
+                <div class="space-y-6 max-[450px]:space-y-4">
+                    <!-- Review 1 - Female Customer -->
+                    <div class="story-card slide-in-left">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer1.avif" alt="Customer 1"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    प्रिया शर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 जयपुर, राजस्थान | 👩 30 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-base text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-sm max-[450px]:pl-4">
+                                मेरे कान में महीनों से तेज़ जलन और एसा दर्द रहता था कि रात को नींद तक नहीं आती थी।
+                                हल्का-सा छूने पर भी चुभन उठती थी और दिनभर कान गरम व भारी महसूस होता था। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> शुरू किया और सिर्फ <strong
+                                    class="text-brand-primary">10–12 दिनों</strong> में सूजन लगभग 70% कम हो गई। अब
+                                धीरे-धीरे कान पहले जैसा हल्का और आरामदायक महसूस होने लगा है।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 - Male Customer -->
+                    <div class="story-card slide-in-right">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer2.avif" alt="Customer 2"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    राजेश वर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 इंदौर, मध्य प्रदेश | 👨 28 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-base text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-sm max-[450px]:pl-4">
+                                मेरे कान से बार-बार चिपचिपा पानी निकलता था और खुजली इतनी होती थी कि काम पर ध्यान नहीं लग
+                                पाता था। जलन और भारीपन ने रोज़मर्रा की ज़िंदगी मुश्किल कर दी थी। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> लेने के बाद कुछ ही दिनों में
+                                पानी निकलना बंद हो गया और कान साफ महसूस होने लगा। अब दर्द, खुजली और जलन — तीनों में काफी
+                                राहत है।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-8 max-[450px]:mt-6">
+                    <button onclick="scrollToContact()"
+                        class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
+                        <span class="flex items-center justify-center gap-2">
+                            <span>✨</span>
+                            <span>आप भी पाएं राहत - अभी ऑर्डर करें</span>
+                        </span>
+                    </button>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Comparison Section -->
+            <section class="py-2 px-4" style="background-color:#F0FDFA;">
+                <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl py-3">
+
+                    <h2 class="text-2xl sm:text-3xl px-3 font-bold text-center mb-6" style="color:#134E4A;">
+                        Comparison (दूसरों से कैसे अलग?)
+                    </h2>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+
+                            <!-- Table Head -->
+                            <thead>
+                                <tr style="background-color:#CCFBF1;">
+                                    <th class="p-4 text-left text-lg font-bold" style="color:#134E4A;">Features</th>
+                                    <th class="p-4 text-center text-lg font-bold" style="color:#134E4A;">Other Products
+                                    </th>
+                                    <th class="p-4 text-center text-lg font-bold" style="color:#134E4A;">Ear Care
+                                        Capsule</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <!-- Row 1 - Pain Relief -->
+                                <tr class="border-b">
+                                    <td class="p-4 flex items-center gap-3">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/5295/5295318.png"
+                                            class="w-10 h-10">
+                                        <span class="font-semibold" style="color:#134E4A;">Pain Relief</span>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ❌ <p class="text-sm text-gray-600">सिर्फ दर्द कम</p>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ✅ <p class="text-sm text-gray-600">जड़ से infection खत्म</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 2 - Infection Removal -->
+                                <tr class="border-b bg-[#F0FDFA]">
+                                    <td class="p-4 flex items-center gap-3">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png"
+                                            class="w-8 h-8">
+                                        <span class="font-semibold" style="color:#134E4A;">Infection Clean</span>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ⚠️ <p class="text-sm text-gray-600">Temporary relief</p>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ✅ <p class="text-sm text-gray-600">Long-term support</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 3 - Safety -->
+                                <tr class="border-b">
+                                    <td class="p-4 flex items-center gap-3">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1161/1161388.png"
+                                            class="w-8 h-8">
+                                        <span class="font-semibold" style="color:#134E4A;">Safety and Side
+                                            Effects</span>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ❌ <p class="text-sm text-gray-600">Heavy steroids</p>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ✅ <p class="text-sm text-gray-600">100% Ayurvedic</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 4 - Healing Herbs -->
+                                <tr>
+                                    <td class="p-4 flex items-center gap-3">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png"
+                                            class="w-8 h-8">
+                                        <span class="font-semibold" style="color:#134E4A;">Healing Herbs</span>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ❌ <p class="text-sm text-gray-600">No herbal support</p>
+                                    </td>
+
+                                    <td class="p-4 text-center">
+                                        ✅ <p class="text-sm text-gray-600">Natural healing herbs</p>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Certificate Badge Section -->
+            <section class="px-4 py-2  max-[450px]:px-3">
+                <div class="trust-badge-container rounded-2xl p-6 max-[450px]:p-4">
+                    <!-- Heading -->
+                    <div class="text-center mb-6 max-[450px]:mb-4 fade-in-up">
+                        <h2 class="text-3xl font-bold text-brand-primary font-arya mb-2 max-[450px]:text-2xl">
+                            🏆 Certified & Trusted
+                        </h2>
+                        <p class="text-lg text-brand-accent font-arya max-[450px]:text-base">
+                            ISO, GMP, FSSAI Certified
+                        </p>
+                        <p class="text-base text-brand-secondary font-arya mt-2 max-[450px]:text-sm font-semibold">
+                            ✅ कई Ayurvedic practitioners द्वारा सुझाया जाता है।
+                        </p>
+                    </div>
+
+                    <!-- Main Content: Badges + Product Image -->
+                    <div class="flex flex-row md:flex-row items-center justify-between gap-6 max-[450px]:gap-4 mb-6">
+                        <!-- Left: Certification Badges -->
+                        <div class="flex flex-wrap items-center justify-center gap-4 max-[450px]:gap-3 flex-1">
+                            <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
+                                <img src="./Image/GMP.png" alt="GMP Certified"
+                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                            </div>
+                            <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
+                                <img src="./Image/ISO.png" alt="ISO Certified"
+                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                            </div>
+                            <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
+                                <img src="./Image/FSSAI.png" alt="FSSAI Certified"
+                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                            </div>
+                        </div>
+
+                        <!-- Right: Product Image -->
+                        <div class="flex-1 flex items-center justify-center">
+
+                            <img src="./Image/productImage.png" alt="Ear Care Product"
+                                class="h-auto w-auto max-[450px]:h-auto object-contain">
+
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center">
+                        <button onclick="scrollToContact()"
+                            class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
+                            <span class="flex items-center justify-center gap-2">
+                                <span>🛒</span>
+                                <span>अभी ऑर्डर करें और स्वस्थ रहें</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Doctor's Advice Section -->
+            <section class="py-2 px-4" style="background-color: #F0FDFA;">
+                <div class="max-w-4xl mx-auto rounded-3xl p-6 sm:p-10 shadow-xl" style="background-color: #CCFBF1;">
+
+                    <!-- Doctor Image + Title -->
+                    <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <img src="./Image/Doctor.png" alt="Ayurvedic Doctor"
+                            class="w-32 bg-white h-32 rounded-full shadow-md border-4" style="border-color: #99F6E4;" />
+
+                        <div>
+                            <h2 class="text-2xl font-bold" style="color: #134E4A;">
+                                Ayurvedic Doctor’s Advice
+                            </h2>
+                            <p class="text-sm" style="color: #0D9488;">— Ayurvedic Health Expert</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Quote -->
+                    <div class="mt-6 p-6 rounded-xl shadow"
+                        style="background-color: #99F6E4; border-left: 6px solid #14B8A6;">
+                        <p class="text-lg font-semibold leading-relaxed" style="color: #134E4A;">
+                            “कान में सूजन, infection और जलन को अनदेखा करना गलत है।
+                            Ayurvedic herbs तेजी से inflammation और bacterial buildup को
+                            कम करके natural healing देती हैं।”
+                        </p>
+                    </div>
+
+                    <!-- Icons Section -->
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                        <div class="rounded-xl shadow p-4 text-center border"
+                            style="background-color: #F0FDFA; border-color: #5EEAD4;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/12312/12312402.png"
+                                class="w-14 h-14 mx-auto mb-3" />
+                            <p class="font-semibold" style="color: #134E4A;">सूजन कम</p>
+                        </div>
+
+                        <div class="rounded-xl shadow p-4 text-center border"
+                            style="background-color: #F0FDFA; border-color: #5EEAD4;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png"
+                                class="w-14 h-14 mx-auto mb-3" />
+                            <p class="font-semibold" style="color: #134E4A;">इन्फेक्शन कंट्रोल</p>
+                        </div>
+
+                        <div class="rounded-xl shadow p-4 text-center border"
+                            style="background-color: #F0FDFA; border-color: #5EEAD4;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png"
+                                class="w-14 h-14 mx-auto mb-3" />
+                            <p class="font-semibold" style="color: #134E4A;">तेज़ हीलिंग</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Contact Section -->
+            <section
+                class="px-4 py-4 bg-brand-primary text-white border-b-2 border-brand-light max-[450px]:py-6 max-[450px]:px-3"
+                id="contact">
+
+                <!-- Order Header -->
+                <div class="text-center mb-6 max-[450px]:mb-4">
+                    <h2 class="text-2xl font-bold font-arya mb-3 max-[450px]:text-xl max-[450px]:mb-2">
+                        📦 अभी Ear Care Capsule ऑर्डर करें और दर्द-सूजन से राहत पाएं।
+                    </h2>
+                    <p class="text-lg font-arya font-semibold max-[450px]:text-base animate-bounce">
+                        👇 नीचे क्लिक करके अपना पैक बुक करें 👇
+                    </p>
+                </div>
+
+                <form id="contactForm">
+                    <div class="mb-4 max-[450px]:mb-3">
+                        <label for="name"
+                            class="block mb-2 text-xl text-white font-arya font-semibold max-[450px]:text-lg max-[450px]:mb-1">आपका
+                            नाम:</label>
+                        <input type="text" id="name" name="name" required placeholder="अपना नाम लिखें"
+                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-brand-muted font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                    </div>
+                    <div class="mb-4 max-[450px]:mb-3">
+                        <label for="phone"
+                            class="block mb-2 text-xl text-white font-arya font-semibold max-[450px]:text-lg max-[450px]:mb-1">फोन
+                            नंबर:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="अपना फोन नंबर लिखें"
+                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-brand-muted font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                    </div>
+                    <button type="submit"
+                        class="bg-brand-secondary text-brand-accent font-bold border-none py-4 px-8 rounded text-2xl font-arya cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-xl max-[450px]:mt-3"
+                        onclick="showThankYou()">
+                        <span>✨</span>
+                        अभी ऑर्डर करें
+                        <span>✨</span>
+                    </button>
+                </form>
+            </section>
+ <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);"></div>
+                
+            <!-- FAQ Section  -->
+            <section class="px-4  max-[450px]:px-3">
+                <div class="text-center mb-6">
+                    <!-- <div class="money-back-badge mb-3 text-lg max-[450px]:text-base font-arya">
+                    </section>
+                        🟢 Money-Back Guarantee
+                    </div> -->
+                    <h2 class="text-3xl font-bold text-brand-primary font-arya max-[450px]:text-2xl mb-2">
+                        आपके सवाल, हमारे जवाब
+                    </h2>
+                    <p class="text-brand-accent font-arya text-lg max-[450px]:text-base">
+                        ⬇️ नीचे क्लिक करके जवाब पढ़ें
+                    </p>
+                </div>
+
+                <div class="faq-container max-w-2xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-arya font-semibold max-[450px]:text-base pr-4">
+                                ❓ क्या ये कान की सूजन और जलन में काम करेगा?
+                            </h3>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-brand-accent font-arya text-base max-[450px]:text-sm leading-relaxed">
+                                ✅ हाँ, <strong>Ear Care Capsule</strong> Inflammation को कम कर Natural Relief देता है।
+                                यह आयुर्वेदिक जड़ी-बूटियों से बना है जो सूजन और जलन को प्राकृतिक रूप से कम करता है।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-arya font-semibold max-[450px]:text-base pr-4">
+                                ⏱️ कितने दिन में फर्क दिखता है?
+                            </h3>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-brand-accent font-arya text-base max-[450px]:text-sm leading-relaxed">
+                                📊 अधिकतर लोगों को <strong class="text-brand-primary">7–10 दिन</strong> में राहत महसूस
+                                होती है। नियमित उपयोग से बेहतर और स्थायी परिणाम मिलते हैं।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-arya font-semibold max-[450px]:text-base pr-4">
+                                ⚠️ क्या इसके कोई Side Effects हैं?
+                            </h3>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-brand-accent font-arya text-base max-[450px]:text-sm leading-relaxed">
+                                🌿 नहीं, यह <strong class="text-brand-primary">100% Ayurvedic</strong> है और पूरी तरह से
+                                प्राकृतिक सामग्री से बना है। कोई हानिकारक रसायन या side effects नहीं हैं।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-arya font-semibold max-[450px]:text-base pr-4">
+                                👂 क्या सुनने में फर्क पड़ता है?
+                            </h3>
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-brand-accent font-arya text-base max-[450px]:text-sm leading-relaxed">
+                                🎯 हाँ, लगातार लेने पर <strong class="text-brand-primary">Hearing Clarity</strong> बेहतर
+                                होती है। कान के अंदरूनी स्वास्थ्य में सुधार से सुनने की क्षमता भी बढ़ती है।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);"></div>
+
+
+        </main>
+        <footer
+            class="bg-brand-primary text-white py-4 px-4 text-center max-[450px]:py-4 max-[450px]:px-3 pb-20 max-[450px]:pb-20">
+            <div class="text-sm mt-4 font-arya max-[450px]:text-xs max-[450px]:mt-2"
+                style="color: rgba(256,256,256,0.85)">
+                <p><strong class="font-arya text-white">⚠️ Disclaimer :-</strong>This product is not intended to
+                    diagnose, treat, cure, or prevent any disease. Results may vary from person to person. Always
+                    consult with a qualified healthcare professional before starting any new supplement.</p>
+            </div>
+        </footer>
+        <!-- Thank You Modal -->
+        <div id="thankYouModal" class="hidden fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center"
+            style="background-color:rgba(248,210,200,0.2); border-radius: 15px; padding: 8px 16px; backdrop-filter: blur(10px); border: 2px solid rgba(248,210,200,0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0);">
+            <div
+                class="bg-brand-light p-8 rounded-lg text-center max-w-sm mx-4 max-[450px]:p-6 max-[450px]:max-w-xs border-2 border-brand-secondary">
+                <h2 class="text-brand-primary mb-4 text-2xl font-arya font-bold max-[450px]:text-xl max-[450px]:mb-3">
+                    धन्यवाद!</h2>
+                <p class="text-xl mb-6 font-arya font-medium max-[450px]:text-lg max-[450px]:mb-4 text-brand-accent">
+                    हमने
+                    आपकी
+                    जानकारी
+                    प्राप्त कर ली है और आपकी
+                    मुफ्त सलाह निर्धारित करने के लिए 24 घंटे के भीतर आपसे संपर्क करेंगे।</p>
+            </div>
+        </div>
+        <!-- Fixed CTA Form at Bottom -->
+        <div id="fixedCTA"
+            class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-brand-primary shadow-2xl w-[450px] border-t-4 border-brand-secondary">
+            <div class="px-2 py-3 w-full max-[450px]:px-2 max-w-screen-xl mx-auto">
+                <!-- Main Content: Centered Layout -->
+                <div class="flex flex-col items-center justify-between gap-3 max-[450px]:gap-4">
+                    <!-- Promotional Points -->
+                    <div
+                        class="flex justify-around items-center gap-10 text-white text-sm font-arya font-bold max-[450px]:text-xs max-[450px]:gap-12">
+                        <span class="truncate">🔥 Today Offer</span>
+                        <span class="truncate">📊 Diet Chart</span>
+                        <span class="truncate">💰 Cod Available</span>
+                    </div>
+
+                    <!-- Timer & Button Section -->
+                    <div class="flex items-center justify-between gap-15 max-[450px]:gap-18">
+                        <!-- Countdown Timer -->
+                        <div class="text-center">
+                            <div id="countdown"
+                                class="text-white text-lg max-[450px]:text-base font-extrabold font-arya whitespace-nowrap flex items-center gap-1">
+                                <span class="animate-pulse">⏰</span>
+                                <span>00:00:00</span>
+                            </div>
+                            <p class="text-white text-xs max-[450px]:text-[10px] font-semibold font-arya"
+                                style="opacity: 0.9;">
+                                Offer समाप्त होने में
+                            </p>
+                        </div>
+
+                        <!-- Order Button -->
+                        <button id="ctaButton" onclick="scrollToContact()"
+                            class="text-white px-6 py-2.5 rounded-xl font-arya font-bold text-base transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-xl transform whitespace-nowrap max-[450px]:text-sm max-[450px]:px-4 max-[450px]:py-2"
+                            style="background: linear-gradient(135deg, #14B8A6, #0D9488); border: 2px solid rgba(255, 255, 255, 0.3);">
+                            <span class="flex items-center gap-2">
+                                <span>🛒</span>
+                                <span>Order Now</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function showThankYou() {
+            // Process and fill form data
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            // Validate form data
+            if (!name || !phone) {
+                alert('कृपया सभी फील्ड भरें!');
+                return false;
+            }
+
+            // Process the data (you can modify this part as needed)
+            const formData = {
+                customerName: name,
+                phoneNumber: phone,
+                timestamp: new Date().toLocaleString('hi-IN'),
+                product: 'Mirgi Mukti'
+            };
+
+            // Fill/store the processed data (example: console log or local storage)
+            console.log('Form Data Processed:', formData);
+            localStorage.setItem('customerOrder', JSON.stringify(formData));
+
+            // Show thank you modal if it exists, otherwise show alert
+            const modal = document.getElementById('thankYouModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                // Auto close after 3 seconds
+                setTimeout(() => {
+                    closeModal();
+                }, 20000);
+            } else {
+                // Fallback alert with processed data
+                alert(`धन्यवाद ${name}! आपका ऑर्डर सफलतापूर्वक सबमिट हो गया है। हमारी टीम जल्द ही ${phone} पर आपसे संपर्क करेगी।`);
+                document.getElementById('contactForm').reset();
+            }
+
+            return true;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('thankYouModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            document.getElementById('contactForm').reset();
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        // Countdown Timer Function
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0); // Set to midnight
+
+            const timeRemaining = tomorrow - now;
+
+            const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            const formattedTime =
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                countdownElement.innerHTML = `<span class="animate-pulse">⏰</span> <span>${formattedTime}</span>`;
+            }
+        }
+        // Start the countdown timer immediately and update every second
+        updateCountdown(); // Initial call
+        setInterval(updateCountdown, 1000); // Update every second
+
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            const allQuestions = document.querySelectorAll('.faq-question');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+
+            // Close all other FAQs
+            allQuestions.forEach(q => {
+                if (q !== element) {
+                    q.classList.remove('active');
+                }
+            });
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.classList.remove('active');
+                }
+            });
+            allIcons.forEach(i => {
+                if (i !== icon) {
+                    i.classList.remove('rotate');
+                }
+            });
+
+            // Toggle current FAQ
+            element.classList.toggle('active');
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotate');
+        }
+    </script>
+</body>
+
+</html>

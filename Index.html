@@ -755,6 +755,140 @@
             opacity: 1;
             transform: scale(1.1);
         }
+
+        /* Limited Time Offer Section Styles */
+        .limited-offer-section {
+            background: linear-gradient(135deg, var(--brand-light) 0%, rgba(255, 255, 255, 0.95) 100%);
+            position: relative;
+        }
+
+        .offer-container {
+            background: white;
+            border: 3px solid var(--brand-primary);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .offer-container:hover {
+            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.25);
+        }
+
+        .offer-badge {
+            background: var(--brand-primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+        }
+
+        .discount-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(20, 184, 166, 0.3);
+            border: 4px solid white;
+        }
+
+        .offer-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            margin-bottom: 16px;
+        }
+
+        .offer-subtitle {
+            font-size: 1.1rem;
+            color: var(--brand-accent);
+            font-weight: 500;
+        }
+
+        .offer-cta {
+            background: var(--brand-primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3);
+        }
+
+        .offer-cta:hover {
+            background: var(--brand-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.4);
+        }
+
+        .offer-features {
+            background: var(--brand-light);
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid rgba(20, 184, 166, 0.1);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            color: var(--brand-accent);
+            font-weight: 500;
+        }
+
+        @media (max-width: 450px) {
+            .offer-title {
+                font-size: 1.8rem;
+            }
+
+            .discount-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 1.3rem;
+            }
+
+            .offer-cta {
+                padding: 14px 28px;
+                font-size: 1.1rem;
+            }
+
+            .offer-features {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -800,8 +934,275 @@
         <!-- Main Content -->
         <main style="background: transparent;">
 
+
+            <!-- Hero Section  -->
+            <section class="hero-section ">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Hero Image -->
+                    <div class="w-full ">
+                        <img src="./Image/Hero.png" alt="EarCare Hero" class="w-full h-auto  ">
+                    </div>
+
+                    <!-- Hero Text -->
+                    <div class="px-4">
+                        <p
+                            class="text-3xl font-inknut text-left leading-relaxed text-green-700 font-extrabold max-[450px]:text-2xl">
+                            क्या आपको भी है कान का दर्द या संक्रमण?
+                            <span class="text-[#1c2529]" style="font-weight: 700;">हल्का-सा छूने पर</span> कान में उठने
+                            वाला
+                            <span class="text-[#1c2529]" style="font-weight: 700;">तेज़ दर्द</span>,
+                            <span class="text-[#1c2529]" style="font-weight: 700;">अंदर तक जलन</span> और
+                            <span class="text-[#1c2529]" style="font-weight: 700;">सुनने की क्षमता कम होना |</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Problem Section -->
+            <section class="py-4 bg-gradient-to-b from-green-50 to-white">
+                <div class="max-w-5xl mx-auto px-4">
+
+                    <!-- ======================== SECTION 1 ======================== -->
+                    <h2 class="text-3xl font-bold text-green-800 text-center mb-12">
+                        Pain Detailing
+                    </h2>
+
+                    <div class="relative">
+
+
+                        <!-- Wave Items -->
+                        <div class="space-y-5">
+
+                            <!-- Item 1 -->
+                            <div class="flex items-center gap-6">
+                                <img src="./Image/Problem1.png" class="w-40 h-40 rounded-full shadow-lg" />
+                                <p class="flex-1 text-lg text-green-900">
+                                    कान में इतनी सूजन कि छूने पर भी दर्द?
+                                </p>
+                            </div>
+
+                            <!-- Item 2 - shifted right -->
+                            <div class="flex items-center gap-6 justify-end">
+                                <p class="flex-1 text-right text-lg text-green-900">
+                                    कान में तेज़ जलन, गर्मी, भारीपन पूरे दिन?
+                                </p>
+                                <img src="./Image/Problem2.png" class="w-40 h-40 rounded-full shadow-lg" />
+                            </div> <!-- Item 3 -->
+                            <div class="flex items-center gap-6">
+                                <img src="./Image/Problem3.png" class="w-40 h-40 rounded-full shadow-lg" />
+                                <p class="flex-1 text-lg text-green-900">
+                                    कान में लगातार खुजली, चुभन और असहजता?
+                                </p>
+                            </div>
+
+                            <!-- Item 4 - shifted right -->
+                            <div class="flex items-center gap-6 justify-end">
+                                <p class="flex-1 text-right text-lg text-green-900">
+                                    कभी कान में खिंचाव, कभी तेज़ चुभन?
+                                </p>
+                                <img src="./Image/Problem4.png" class="w-40 h-40 rounded-full shadow-lg" />
+                            </div> <!-- Item 5 -->
+                            <div class="flex items-center gap-6">
+                                <img src="./Image/Problem5.png" class="w-40 h-40 rounded-full shadow-lg" />
+                                <p class="flex-1 text-lg text-green-900">
+                                    और… धीरे-धीरे सुनाई कम देने लगी है?
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Highlight box -->
+                    <div class="mt-16 bg-green-100 border border-green-300 rounded-xl p-6 shadow-sm">
+                        <p class="text-green-800 text-center text-lg">
+                            ये लक्षण बताता है कि कान के अंदर संक्रमण या सूजन बढ़ रही है,
+                            जो समय रहते इलाज न हो तो permanent सुनने की कमी तक पहुंच सकती है।
+                        </p>
+                    </div>
+
+                    <!-- Decorative Divider -->
+                    <div class="my-4 h-2  max-[450px]:my-3"
+                        style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+                    </div>
+
+
+                    <!-- ======================== SECTION 2 ======================== -->
+                    <h2 class="text-3xl font-bold text-green-800 text-center mt-4 mb-4">
+                        Deep Problem Section
+                    </h2>
+
+                    <p class="text-lg text-green-900 text-center mb-4">
+                        कानों की समस्या शुरुआत में छोटी लगती है… <br>
+                        पर समय के साथ यही समस्याएँ डरावनी बन जाती हैं:
+                    </p>
+
+                    <div class="relative w-full max-w-2xl mx-auto">
+
+                        <!-- Top -->
+                        <div class="flex flex-col items-center mb-16">
+                            <img src="./Image/Deep1.png" class="w-24 h-24 rounded-full shadow-lg" />
+                            <p class="text-green-800 font-medium text-center mt-3 w-64">
+                                कान में जमा हुआ संक्रमण Pus/Mavaad बना देता है
+                            </p>
+                        </div>
+
+                        <!-- Middle Row -->
+                        <div class="flex justify-between items-start mb-16">
+
+                            <!-- Left -->
+                            <div class="flex flex-col items-center w-40">
+                                <img src="./Image/Deep2.png" class="w-24 h-24 rounded-full shadow-lg" />
+                                <p class="text-green-800 font-medium text-center mt-3">
+                                    लगातार खुजली से Ear Canal Damage होता है
+                                </p>
+                            </div>
+
+                            <!-- Right -->
+                            <div class="flex flex-col items-center w-40">
+                                <img src="./Image/Deep3.png" class="w-24 h-24 rounded-full shadow-lg" />
+                                <p class="text-green-800 font-medium text-center mt-3">
+                                    सूजन बढ़ने पर आवाज़ें मंद सुनाई पड़ती हैं
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom -->
+                        <div class="flex flex-col items-center mb-4">
+                            <img src="./Image/Deep4.png" class="w-24 h-24 rounded-full shadow-lg" />
+                            <p class="text-green-800 font-medium text-center mt-3 w-64">
+                                पानी या चिपचिपा तरल निकलना गंभीर समस्या का संकेत है
+                            </p>
+                        </div>
+
+                        <!-- Center Summary -->
+                        <div class="text-center px-6 py-6 bg-green-50 rounded-xl shadow-md border border-green-200">
+                            <p class="text-green-800 font-semibold leading-relaxed">
+                                दवाइयों का जल्दी असर न होना और बार-बार दर्द लौटना बताता है —
+                                शरीर को अंदर से काम करने वाला Ayurvedic support चाहिए।
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- HOW IT WORKS SECTION -->
+            <section class="py-4 px-6 bg-green-50">
+
+                <h2 class="text-3xl font-bold text-green-800 text-center mb-8">
+                    कैसे काम करता है?
+                </h2>
+                <p class="text-center text-lg text-green-900 max-w-2xl mx-auto mb-12">
+                    Ear Care Capsule की जड़ी-बूटियाँ 3-स्टेप में असर दिखाती हैं —
+                    सूजन कम करती हैं, संक्रमण हटाती हैं और सुनने की क्षमता मजबूत करती हैं।
+                </p>
+
+
+                <!-- STEP 1 -->
+                <div class="grid grid-cols-3 gap-6 items-center mb-16">
+
+                    <!-- BEFORE -->
+                    <div class="text-center">
+                        <img src="./Image/Point1.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-red-700 font-semibold">Before: सूजन, जलन और भारीपन</p>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex justify-center">
+                        <div class="text-5xl text-green-700 font-bold">➜</div>
+                    </div>
+
+                    <!-- AFTER -->
+                    <div class="text-center">
+                        <img src="./Image/Point2.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-green-700 font-semibold">After: सूजन कम, आराम मिलना</p>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="col-span-3 text-center mt-4">
+                        <h3 class="text-xl font-bold text-green-900">1 Inflammation Control</h3>
+                        <p class="text-green-800 mt-1">सूजन घटाकर दर्द, जलन और भारीपन कम करती है।</p>
+                    </div>
+                </div>
+
+
+
+                <!-- STEP 2 -->
+                <div class="grid grid-cols-3 gap-6 items-center mb-16">
+
+                    <!-- BEFORE -->
+                    <div class="text-center">
+                        <img src="./Image/Point3.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-red-700 font-semibold">Before: Infection, बैक्टीरिया</p>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex justify-center">
+                        <div class="text-5xl text-green-700 font-bold">➜</div>
+                    </div>
+
+                    <!-- AFTER -->
+                    <div class="text-center">
+                        <img src="./Image/Point4.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-green-700 font-semibold">After: Ear Canal साफ, Healing</p>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="col-span-3 text-center mt-4">
+                        <h3 class="text-xl font-bold text-green-900">2 Anti-Infection Action</h3>
+                        <p class="text-green-800 mt-1">कान के अंदर जमा बैक्टीरिया को साफ कर Ear Canal को heal करती है।
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <!-- STEP 3 -->
+                <div class="grid grid-cols-3 gap-6 items-center">
+
+                    <!-- BEFORE -->
+                    <div class="text-center">
+                        <img src="./Image/Point5.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-red-700 font-semibold">Before: आवाज़ मंद सुनाई देना</p>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex justify-center">
+                        <div class="text-5xl text-green-700 font-bold">➜</div>
+                    </div>
+
+                    <!-- AFTER -->
+                    <div class="text-center">
+                        <img src="./Image/Point6.png" class="w-40 h-40 mx-auto rounded-xl shadow-lg" />
+                        <p class="mt-4 text-green-700 font-semibold">After: आवाज़ साफ, सुनाई बेहतर</p>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="col-span-3 text-center mt-4">
+                        <h3 class="text-xl font-bold text-green-900">3 Hearing Support</h3>
+                        <p class="text-green-800 mt-1">नर्व्स को मजबूत कर आवाज़ें साफ सुनाने में मदद करती है।</p>
+                    </div>
+                </div>
+
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
             <!-- Benefits Section -->
-            <section class="benefits-section py-16 px-4 max-[450px]:py-12 max-[450px]:px-3">
+            <section class="benefits-section py-4 px-4 max-[450px]:px-3">
                 <div class="benefits-container max-w-6xl mx-auto rounded-3xl p-8 max-[450px]:p-6">
 
                     <!-- Header -->
@@ -924,206 +1325,6 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
-            <section class="py-14 bg-gradient-to-b from-green-50 to-white">
-                <div class="max-w-6xl mx-auto px-4">
-
-                    <!-- Heading -->
-                    <h2 class="text-3xl font-bold text-center text-green-800 mb-12">
-                        Key Ingredients (मुख्य जड़ी-बूटियाँ)
-                    </h2>
-
-                    <div class="grid md:grid-cols-2 gap-10">
-
-                        <!-- Leaf Card -->
-                        <div class="relative">
-                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-3deg]">
-                                <div class="relative h-56">
-                                    <img src="./Image/Ind1.png" class="w-full h-full object-cover opacity-90" />
-
-                                    <!-- Leaf Shape Mask -->
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 ml-2">
-                                <h3 class="text-2xl font-semibold text-green-700">वाचा</h3>
-                                <p class="text-green-900/90">Infection और दर्द में राहत</p>
-                            </div>
-                        </div>
-
-                        <!-- Leaf Card -->
-                        <div class="relative">
-                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[3deg]">
-                                <div class="relative h-56">
-                                    <img src="./Image/Ind2.png" class="w-full h-full object-cover opacity-90" />
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 ml-2">
-                                <h3 class="text-2xl font-semibold text-green-700">हरितकी</h3>
-                                <p class="text-green-900/90">सूजन कम करे</p>
-                            </div>
-                        </div>
-
-                        <!-- Leaf Card -->
-                        <div class="relative">
-                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-2deg]">
-                                <div class="relative h-56">
-                                    <img src="./Image/Ind3.png" class="w-full h-full object-cover opacity-90" />
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 ml-2">
-                                <h3 class="text-2xl font-semibold text-green-700">पिप्पली</h3>
-                                <p class="text-green-900/90">अंदरूनी toxins साफ करे</p>
-                            </div>
-                        </div>
-
-                        <!-- Leaf Card -->
-                        <div class="relative">
-                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[2deg]">
-                                <div class="relative h-56">
-                                    <img src="./Image/Ind4.png" class="w-full h-full object-cover opacity-90" />
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 ml-2">
-                                <h3 class="text-2xl font-semibold text-green-700">सरस्वता</h3>
-                                <p class="text-green-900/90">Hearing support</p>
-                            </div>
-                        </div>
-
-                        <!-- Leaf Card -->
-                        <div class="relative md:col-span-2 mx-auto w-full max-w-[420px]">
-                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[1deg]">
-                                <div class="relative h-56">
-                                    <img src="./Image/Ind5.png" class="w-full h-full object-cover opacity-90" />
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 ml-2 text-center">
-                                <h3 class="text-2xl font-semibold text-green-700">तगर</h3>
-                                <p class="text-green-900/90">बार-बार होने वाली जलन रोकता है</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- Decorative Divider -->
-            <div class="my-4 h-2  max-[450px]:my-3"
-                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
-            </div>
-
-            <!-- Success Story Section -->
-            <section class="px-4 py-2 max-[450px]:px-3">
-                <!-- Section Heading -->
-                <div class="text-center mb-10 max-[450px]:mb-8">
-                    <h2 class="text-4xl font-bold text-brand-primary font-arya mb-4 max-[450px]:text-3xl">
-                        सफलता की कहानियां
-                    </h2>
-                    <p class="text-xl text-brand-accent font-arya max-[450px]:text-lg font-semibold">
-                        हज़ारों संतुष्ट ग्राहकों का विश्वास
-                    </p>
-                    <div class="flex items-center justify-center gap-2 mt-3">
-                        <span class="text-warning-color text-2xl">⭐⭐⭐⭐⭐</span>
-                        <span class="text-brand-accent font-arya font-semibold">4.9/5 रेटिंग</span>
-                    </div>
-                </div>
-
-                <!-- Success Stories Container -->
-                <div class="space-y-6 max-[450px]:space-y-4">
-                    <!-- Review 1 - Female Customer -->
-                    <div class="story-card slide-in-left">
-                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
-                            <img src="./Image/customer1.avif" alt="Customer 1"
-                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
-                                    प्रिया शर्मा
-                                </h3>
-                                <div class="star-rating mb-2">
-                                    ⭐⭐⭐⭐⭐
-                                </div>
-                                <div class="customer-info text-brand-accent font-arya font-semibold">
-                                    📍 जयपुर, राजस्थान | 👩 30 वर्ष
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <span class="quote-icon absolute -top-2 -left-1">“</span>
-                            <p
-                                class="text-base text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-sm max-[450px]:pl-4">
-                                मेरे कान में महीनों से तेज़ जलन और एसा दर्द रहता था कि रात को नींद तक नहीं आती थी।
-                                हल्का-सा छूने पर भी चुभन उठती थी और दिनभर कान गरम व भारी महसूस होता था। <strong
-                                    class="text-brand-primary">Ear Care Capsule</strong> शुरू किया और सिर्फ <strong
-                                    class="text-brand-primary">10–12 दिनों</strong> में सूजन लगभग 70% कम हो गई। अब
-                                धीरे-धीरे कान पहले जैसा हल्का और आरामदायक महसूस होने लगा है।
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Review 2 - Male Customer -->
-                    <div class="story-card slide-in-right">
-                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
-                            <img src="./Image/customer2.avif" alt="Customer 2"
-                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
-                                    राजेश वर्मा
-                                </h3>
-                                <div class="star-rating mb-2">
-                                    ⭐⭐⭐⭐⭐
-                                </div>
-                                <div class="customer-info text-brand-accent font-arya font-semibold">
-                                    📍 इंदौर, मध्य प्रदेश | 👨 28 वर्ष
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <span class="quote-icon absolute -top-2 -left-1">“</span>
-                            <p
-                                class="text-base text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-sm max-[450px]:pl-4">
-                                मेरे कान से बार-बार चिपचिपा पानी निकलता था और खुजली इतनी होती थी कि काम पर ध्यान नहीं लग
-                                पाता था। जलन और भारीपन ने रोज़मर्रा की ज़िंदगी मुश्किल कर दी थी। <strong
-                                    class="text-brand-primary">Ear Care Capsule</strong> लेने के बाद कुछ ही दिनों में
-                                पानी निकलना बंद हो गया और कान साफ महसूस होने लगा। अब दर्द, खुजली और जलन — तीनों में काफी
-                                राहत है।
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="text-center mt-8 max-[450px]:mt-6">
-                    <button onclick="scrollToContact()"
-                        class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
-                        <span class="flex items-center justify-center gap-2">
-                            <span>✨</span>
-                            <span>आप भी पाएं राहत - अभी ऑर्डर करें</span>
-                        </span>
-                    </button>
-                </div>
-            </section>
-            <!-- Decorative Divider -->
-            <div class="my-4 h-2  max-[450px]:my-3"
-                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
-            </div>
-
             <!-- Comparison Section -->
             <section class="py-2 px-4" style="background-color:#F0FDFA;">
                 <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl py-3">
@@ -1229,6 +1430,414 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
+            <!-- Success Story Section -->
+            <section class="px-4 py-2 max-[450px]:px-3">
+                <!-- Section Heading -->
+                <div class="text-center mb-10 max-[450px]:mb-8">
+                    <h2 class="text-4xl font-bold text-brand-primary font-arya mb-4 max-[450px]:text-3xl">
+                        सफलता की कहानियां
+                    </h2>
+                    <p class="text-xl text-brand-accent font-arya max-[450px]:text-lg font-semibold">
+                        हज़ारों संतुष्ट ग्राहकों का विश्वास
+                    </p>
+                    <div class="flex items-center justify-center gap-2 mt-3">
+                        <span class="text-warning-color text-2xl">⭐⭐⭐⭐⭐</span>
+                        <span class="text-brand-accent font-arya font-semibold">4.9/5 रेटिंग</span>
+                    </div>
+                </div>
+
+                <!-- Success Stories Container -->
+                <div class="space-y-6 max-[450px]:space-y-4">
+                    <!-- Review 1 - Female Customer -->
+                    <div class="story-card slide-in-left">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer1.avif" alt="Customer 1"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    प्रिया शर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 जयपुर, राजस्थान | 👩 30 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
+                                मेरे कान में महीनों से तेज़ जलन और एसा दर्द रहता था कि रात को नींद तक नहीं आती थी।
+                                हल्का-सा छूने पर भी चुभन उठती थी और दिनभर कान गरम व भारी महसूस होता था। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> शुरू किया और सिर्फ <strong
+                                    class="text-brand-primary">10–12 दिनों</strong> में सूजन लगभग 70% कम हो गई। अब
+                                धीरे-धीरे कान पहले जैसा हल्का और आरामदायक महसूस होने लगा है।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 - Male Customer -->
+                    <div class="story-card slide-in-right">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer2.avif" alt="Customer 2"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    राजेश वर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 इंदौर, मध्य प्रदेश | 👨 28 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
+                                मेरे कान से बार-बार चिपचिपा पानी निकलता था और खुजली इतनी होती थी कि काम पर ध्यान नहीं लग
+                                पाता था। जलन और भारीपन ने रोज़मर्रा की ज़िंदगी मुश्किल कर दी थी। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> लेने के बाद कुछ ही दिनों में
+                                पानी निकलना बंद हो गया और कान साफ महसूस होने लगा। अब दर्द, खुजली और जलन — तीनों में काफी
+                                राहत है।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-8 max-[450px]:mt-6">
+                    <button onclick="scrollToContact()"
+                        class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
+                        <span class="flex items-center justify-center gap-2">
+                            <span>✨</span>
+                            <span>आप भी पाएं राहत - अभी ऑर्डर करें</span>
+                        </span>
+                    </button>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- key Ingredients Section -->
+            <section class="py-14 bg-gradient-to-b from-green-50 to-white">
+                <div class="max-w-6xl mx-auto px-4">
+
+                    <!-- Heading -->
+                    <h2 class="text-3xl font-bold text-center text-green-800 mb-12">
+                        Key Ingredients (मुख्य जड़ी-बूटियाँ)
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-10">
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-3deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind1.png" class="w-full h-full object-cover opacity-90" />
+
+                                    <!-- Leaf Shape Mask -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">वाचा</h3>
+                                <p class="text-green-900/90">Infection और दर्द में राहत</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[3deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind2.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">हरितकी</h3>
+                                <p class="text-green-900/90">सूजन कम करे</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[-2deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind3.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">पिप्पली</h3>
+                                <p class="text-green-900/90">अंदरूनी toxins साफ करे</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[2deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind4.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2">
+                                <h3 class="text-2xl font-semibold text-green-700">सरस्वता</h3>
+                                <p class="text-green-900/90">Hearing support</p>
+                            </div>
+                        </div>
+
+                        <!-- Leaf Card -->
+                        <div class="relative md:col-span-2 mx-auto w-full max-w-[420px]">
+                            <div class="bg-white shadow-xl rounded-3xl overflow-hidden transform rotate-[1deg]">
+                                <div class="relative h-56">
+                                    <img src="./Image/Ind5.png" class="w-full h-full object-cover opacity-90" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-green-700/30 to-transparent clip-path-leaf">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 ml-2 text-center">
+                                <h3 class="text-2xl font-semibold text-green-700">तगर</h3>
+                                <p class="text-green-900/90">बार-बार होने वाली जलन रोकता है</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- Product Showcase Section -->
+            <section class="product-showcase-section py-2 px-4">
+                <div class="max-w-4xl mx-auto">
+
+                    <!-- Section Header -->
+                    <div class="text-center mb-2">
+                        <h2 class="text-3xl max-[450px]:text-2xl font-bold text-green-800 font-inknut">
+                            Product Introduction
+                        </h2>
+                    </div>
+
+                    <!-- Product Showcase Content -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+
+                        <!-- Left Side - Product Image -->
+                        <div class="text-center">
+                            <img src="./Image/ProductShowcase.png" alt="Ear Care Capsule Product Showcase"
+                                class="w-full h-auto  border-2 border-brand-light">
+                        </div>
+
+                        <!-- Right Side - Product Introduction -->
+                        <div class="space-y-6">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-3xl font-bold text-green-700 font-arya mb-4">
+                                    🌿 Introducing: Ear Care Capsule
+                                </h3>
+                                <p class="text-lg font-yantra leading-relaxed text-brand-accent">
+                                    <span class="font-bold text-brand-primary">100% Ayurvedic formula</span> जो
+                                    <span style="color: #1c2529; font-weight: 700;">सूजन</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">दर्द</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">खुजली</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">जलन</span> और
+                                    <span style="color: #1c2529; font-weight: 700;">infection</span> की जड़ में काम करता
+                                    है —
+                                    ताकि कान अंदर से सही हो सके और
+                                    <span style="color: #1c2529; font-weight: 700;">सुनाई फिर से साफ़ हो</span>।
+                                </p>
+                            </div>
+
+                            <!-- Key Features -->
+                            <div class="bg-brand-light rounded-xl p-6 border-2 border-brand-muted">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">🌿</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">100% प्राकृतिक
+                                            आयुर्वेदिक सूत्र</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">⚡</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">तुरंत राहत और दीर्घकालिक
+                                            समाधान</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">🛡️</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">कोई साइड इफेक्ट नहीं -
+                                            पूर्णतः सुरक्षित</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+            <!-- How to use Section -->
+            <section class="bg-brand-light py-4">
+                <div class="max-w-3xl mx-auto text-center px-4">
+
+                    <h2 class="text-3xl max-[450px]:text-3xl font-bold text-green-600 mb-6">
+                        कैसे लें?
+                    </h2>
+
+                    <div class="grid grid-cols-3 sm:grid-cols-3 gap-8 mt-10">
+
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-20 h-20 mb-3">
+                                <!-- Flaticon Keyword: "capsule", "tablet", "medicine" -->
+                                <img src="https://cdn-icons-png.flaticon.com/512/8870/8870385.png"
+                                    alt="Take Capsule Icon" class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="font-semibold text-lg">दिन में 2 बार</h3>
+                            <p class="text-gray-600">सुबह और शाम</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-20 h-20 mb-3">
+                                <!-- Flaticon Keyword: "warm water", "glass water", "drink water" -->
+                                <img src="https://cdn-icons-png.flaticon.com/512/7216/7216867.png" alt="Warm Water Icon"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="font-semibold text-lg">हल्का गर्म पानी</h3>
+                            <p class="text-gray-600">इसके साथ लें</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-20 h-20 mb-3">
+                                <!-- Flaticon Keyword: "calendar", "30 days", "routine" -->
+                                <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png"
+                                    alt="30 Days Course Icon" class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="font-semibold text-lg">30–45 दिन</h3>
+                            <p class="text-gray-600">लगातार लेना जरूरी</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+
+            <!-- Limited Time Offer Section -->
+            <section class="limited-offer-section py-2 px-4">
+                <div class="offer-container max-w-4xl mx-auto rounded-2xl p-8">
+
+                    <!-- Offer Header -->
+                    <div class="text-center mb-10">
+                        <div class="offer-badge mb-6 font-arya">
+                            💊 विशेष ऑफर - EarCare Capsule
+                        </div>
+                        <h2 class="offer-title font-arya">
+                            आज ही ऑर्डर करें और स्वस्थ रहें
+                        </h2>
+                        <p class="offer-subtitle font-yantra">
+                            प्रमाणित आयुर्वेदिक फॉर्मूला के साथ कान की सभी समस्याओं का समाधान
+                        </p>
+                    </div>
+
+                    <!-- Main Offer Content -->
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                        <!-- Left Side - Discount Circle -->
+                        <div class="text-center">
+                            <div class="discount-circle mx-auto mb-6 font-arya">
+                                <div class="text-center">
+                                    <div class="text-2xl font-black">10%</div>
+                                    <div class="text-sm font-medium">छूट</div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold text-brand-primary mb-2 font-arya">
+                                    तुरंत छूट
+                                </h3>
+                                <p class="text-brand-accent font-yantra">
+                                    आज के ऑर्डर पर विशेष डिस्काउंट
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Side - Features -->
+                        <div class="offer-features">
+                            <h3 class="text-xl font-bold text-brand-primary mb-6 font-arya text-center">
+                                🌟 आपको मिलेगा 🌟
+                            </h3>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span class="feature-text font-yantra">10% तुरंत छूट + मुफ्त होम डिलीवरी</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📋</div>
+                                <span class="feature-text font-yantra">मुफ्त डाइट चार्ट और विशेषज्ञ सलाह</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💰</div>
+                                <span class="feature-text font-yantra">Cash on Delivery की सुविधा</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔒</div>
+                                <span class="feature-text font-yantra">100% सुरक्षित और प्रमाणित उत्पाद</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center mt-10">
+                        <button class="offer-cta font-arya" onclick="scrollToContact()">
+                            🛒 अभी ऑर्डर करें - 10% छूट के साथ
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
             <!-- Certificate Badge Section -->
             <section class="px-4 py-2  max-[450px]:px-3">
                 <div class="trust-badge-container rounded-2xl p-6 max-[450px]:p-4">
@@ -1251,15 +1860,15 @@
                         <div class="flex flex-wrap items-center justify-center gap-4 max-[450px]:gap-3 flex-1">
                             <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
                                 <img src="./Image/GMP.png" alt="GMP Certified"
-                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                                    class="h-20 w-20 max-[450px]:h-16 max-[450px]:w-16 object-contain">
                             </div>
                             <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
                                 <img src="./Image/ISO.png" alt="ISO Certified"
-                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                                    class="h-20 w-20 max-[450px]:h-16 max-[450px]:w-16 object-contain">
                             </div>
                             <div class="certificate-badge  p-3 rounded-lg shadow-md max-[450px]:p-2">
                                 <img src="./Image/FSSAI.png" alt="FSSAI Certified"
-                                    class="h-16 w-16 max-[450px]:h-12 max-[450px]:w-12 object-contain">
+                                    class="h-20 w-20 max-[450px]:h-16 max-[450px]:w-16 object-contain">
                             </div>
                         </div>
 
@@ -1388,10 +1997,10 @@
                     </button>
                 </form>
             </section>
- <!-- Decorative Divider -->
+            <!-- Decorative Divider -->
             <div class="my-4 h-2  max-[450px]:my-3"
-                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);"></div>
-                
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
             <!-- FAQ Section  -->
             <section class="px-4  max-[450px]:px-3">
                 <div class="text-center mb-6">
@@ -1476,8 +2085,6 @@
             <!-- Decorative Divider -->
             <div class="my-4 h-2  max-[450px]:my-3"
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);"></div>
-
-
         </main>
         <footer
             class="bg-brand-primary text-white py-4 px-4 text-center max-[450px]:py-4 max-[450px]:px-3 pb-20 max-[450px]:pb-20">

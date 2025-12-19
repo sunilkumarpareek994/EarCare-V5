@@ -800,6 +800,61 @@
             border: 4px solid white;
         }
 
+        /* Animated pulse ring around discount */
+        .discount-circle {
+            position: relative;
+            overflow: visible;
+        }
+
+        .discount-circle::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid rgba(20,184,166,0.15);
+            animation: pulse 2.2s infinite ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.9; }
+            70% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1.25); opacity: 0; }
+        }
+
+        /* Ribbon badge */
+        .offer-ribbon {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(90deg, #F59E0B, #FB923C);
+            color: white;
+            padding: 6px 12px;
+            font-weight: 800;
+            border-radius: 8px;
+            transform: rotate(-12deg);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            font-size: 0.9rem;
+            z-index: 4;
+        }
+
+        /* Countdown */
+        .offer-countdown {
+            margin-top: 8px;
+            display: inline-block;
+            background: linear-gradient(90deg,#FEF3C7,#FFEDD5);
+            color: #92400E;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 18px rgba(20,184,166,0.08);
+        }
+
         .offer-title {
             font-size: 2.2rem;
             font-weight: 800;
@@ -940,7 +995,7 @@
                 <div class="max-w-4xl mx-auto">
                     <!-- Hero Image -->
                     <div class="w-full ">
-                        <img src="./Image/Hero.png" alt="EarCare Hero" class="w-full h-auto  ">
+                        <img src="./Image/Hero.avif" alt="EarCare Hero" class="w-full h-auto  ">
                     </div>
 
                     <!-- Hero Text -->
@@ -1090,6 +1145,84 @@
                     </div>
 
 
+                </div>
+            </section>
+            <!-- Decorative Divider -->
+            <div class="my-4 h-2  max-[450px]:my-3"
+                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
+            </div>
+
+              <!-- Product Showcase Section -->
+            <section class="product-showcase-section py-2 px-4">
+                <div class="max-w-4xl mx-auto">
+
+                    <!-- Section Header -->
+                    <div class="text-center mb-2">
+                        <h2 class="text-3xl max-[450px]:text-2xl font-bold text-green-800 font-inknut">
+                            Product Introduction
+                        </h2>
+                    </div>
+
+                    <!-- Product Showcase Content -->
+                    <div class="grid  gap-8 items-center">
+
+                        <!-- Left Side - Product Image -->
+                        <div class="text-center">
+                            <img src="./Image/ProductShowcase.avif" alt="Ear Care Capsule Product Showcase"
+                                class="w-full h-auto  border-2 border-brand-light">
+                        </div>
+
+                        <!-- Right Side - Product Introduction -->
+                        <div class="space-y-6">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-3xl font-bold text-green-700 font-arya mb-4">
+                                    🌿 Introducing: Ear Care Capsule
+                                </h3>
+                                <p class="text-lg font-yantra leading-relaxed text-brand-accent">
+                                    <span class="font-bold text-brand-primary">100% Ayurvedic formula</span> जो
+                                    <span style="color: #1c2529; font-weight: 700;">सूजन</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">दर्द</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">खुजली</span>,
+                                    <span style="color: #1c2529; font-weight: 700;">जलन</span> और
+                                    <span style="color: #1c2529; font-weight: 700;">infection</span> की जड़ में काम करता
+                                    है —
+                                    ताकि कान अंदर से सही हो सके और
+                                    <span style="color: #1c2529; font-weight: 700;">सुनाई फिर से साफ़ हो</span>।
+                                </p>
+                            </div>
+
+                            <!-- Key Features -->
+                            <div class="bg-brand-light rounded-xl p-6 border-2 border-brand-muted">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">🌿</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">100% प्राकृतिक
+                                            आयुर्वेदिक सूत्र</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">⚡</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">तुरंत राहत और दीर्घकालिक
+                                            समाधान</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">🛡️</span>
+                                        </div>
+                                        <span class="font-yantra text-brand-accent font-medium">कोई साइड इफेक्ट नहीं -
+                                            पूर्णतः सुरक्षित</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
             <!-- Decorative Divider -->
@@ -1430,101 +1563,6 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
-            <!-- Success Story Section -->
-            <section class="px-4 py-2 max-[450px]:px-3">
-                <!-- Section Heading -->
-                <div class="text-center mb-10 max-[450px]:mb-8">
-                    <h2 class="text-4xl font-bold text-brand-primary font-arya mb-4 max-[450px]:text-3xl">
-                        सफलता की कहानियां
-                    </h2>
-                    <p class="text-xl text-brand-accent font-arya max-[450px]:text-lg font-semibold">
-                        हज़ारों संतुष्ट ग्राहकों का विश्वास
-                    </p>
-                    <div class="flex items-center justify-center gap-2 mt-3">
-                        <span class="text-warning-color text-2xl">⭐⭐⭐⭐⭐</span>
-                        <span class="text-brand-accent font-arya font-semibold">4.9/5 रेटिंग</span>
-                    </div>
-                </div>
-
-                <!-- Success Stories Container -->
-                <div class="space-y-6 max-[450px]:space-y-4">
-                    <!-- Review 1 - Female Customer -->
-                    <div class="story-card slide-in-left">
-                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
-                            <img src="./Image/customer1.avif" alt="Customer 1"
-                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
-                                    प्रिया शर्मा
-                                </h3>
-                                <div class="star-rating mb-2">
-                                    ⭐⭐⭐⭐⭐
-                                </div>
-                                <div class="customer-info text-brand-accent font-arya font-semibold">
-                                    📍 जयपुर, राजस्थान | 👩 30 वर्ष
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <span class="quote-icon absolute -top-2 -left-1">“</span>
-                            <p
-                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
-                                मेरे कान में महीनों से तेज़ जलन और एसा दर्द रहता था कि रात को नींद तक नहीं आती थी।
-                                हल्का-सा छूने पर भी चुभन उठती थी और दिनभर कान गरम व भारी महसूस होता था। <strong
-                                    class="text-brand-primary">Ear Care Capsule</strong> शुरू किया और सिर्फ <strong
-                                    class="text-brand-primary">10–12 दिनों</strong> में सूजन लगभग 70% कम हो गई। अब
-                                धीरे-धीरे कान पहले जैसा हल्का और आरामदायक महसूस होने लगा है।
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Review 2 - Male Customer -->
-                    <div class="story-card slide-in-right">
-                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
-                            <img src="./Image/customer2.avif" alt="Customer 2"
-                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
-                                    राजेश वर्मा
-                                </h3>
-                                <div class="star-rating mb-2">
-                                    ⭐⭐⭐⭐⭐
-                                </div>
-                                <div class="customer-info text-brand-accent font-arya font-semibold">
-                                    📍 इंदौर, मध्य प्रदेश | 👨 28 वर्ष
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <span class="quote-icon absolute -top-2 -left-1">“</span>
-                            <p
-                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
-                                मेरे कान से बार-बार चिपचिपा पानी निकलता था और खुजली इतनी होती थी कि काम पर ध्यान नहीं लग
-                                पाता था। जलन और भारीपन ने रोज़मर्रा की ज़िंदगी मुश्किल कर दी थी। <strong
-                                    class="text-brand-primary">Ear Care Capsule</strong> लेने के बाद कुछ ही दिनों में
-                                पानी निकलना बंद हो गया और कान साफ महसूस होने लगा। अब दर्द, खुजली और जलन — तीनों में काफी
-                                राहत है।
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="text-center mt-8 max-[450px]:mt-6">
-                    <button onclick="scrollToContact()"
-                        class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
-                        <span class="flex items-center justify-center gap-2">
-                            <span>✨</span>
-                            <span>आप भी पाएं राहत - अभी ऑर्डर करें</span>
-                        </span>
-                    </button>
-                </div>
-            </section>
-            <!-- Decorative Divider -->
-            <div class="my-4 h-2  max-[450px]:my-3"
-                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
-            </div>
-
             <!-- key Ingredients Section -->
             <section class="py-14 bg-gradient-to-b from-green-50 to-white">
                 <div class="max-w-6xl mx-auto px-4">
@@ -1631,84 +1669,6 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
-            <!-- Product Showcase Section -->
-            <section class="product-showcase-section py-2 px-4">
-                <div class="max-w-4xl mx-auto">
-
-                    <!-- Section Header -->
-                    <div class="text-center mb-2">
-                        <h2 class="text-3xl max-[450px]:text-2xl font-bold text-green-800 font-inknut">
-                            Product Introduction
-                        </h2>
-                    </div>
-
-                    <!-- Product Showcase Content -->
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-
-                        <!-- Left Side - Product Image -->
-                        <div class="text-center">
-                            <img src="./Image/ProductShowcase.png" alt="Ear Care Capsule Product Showcase"
-                                class="w-full h-auto  border-2 border-brand-light">
-                        </div>
-
-                        <!-- Right Side - Product Introduction -->
-                        <div class="space-y-6">
-                            <div class="text-center md:text-left">
-                                <h3 class="text-3xl font-bold text-green-700 font-arya mb-4">
-                                    🌿 Introducing: Ear Care Capsule
-                                </h3>
-                                <p class="text-lg font-yantra leading-relaxed text-brand-accent">
-                                    <span class="font-bold text-brand-primary">100% Ayurvedic formula</span> जो
-                                    <span style="color: #1c2529; font-weight: 700;">सूजन</span>,
-                                    <span style="color: #1c2529; font-weight: 700;">दर्द</span>,
-                                    <span style="color: #1c2529; font-weight: 700;">खुजली</span>,
-                                    <span style="color: #1c2529; font-weight: 700;">जलन</span> और
-                                    <span style="color: #1c2529; font-weight: 700;">infection</span> की जड़ में काम करता
-                                    है —
-                                    ताकि कान अंदर से सही हो सके और
-                                    <span style="color: #1c2529; font-weight: 700;">सुनाई फिर से साफ़ हो</span>।
-                                </p>
-                            </div>
-
-                            <!-- Key Features -->
-                            <div class="bg-brand-light rounded-xl p-6 border-2 border-brand-muted">
-                                <div class="grid grid-cols-1 gap-4">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
-                                            <span class="text-white text-sm font-bold">🌿</span>
-                                        </div>
-                                        <span class="font-yantra text-brand-accent font-medium">100% प्राकृतिक
-                                            आयुर्वेदिक सूत्र</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
-                                            <span class="text-white text-sm font-bold">⚡</span>
-                                        </div>
-                                        <span class="font-yantra text-brand-accent font-medium">तुरंत राहत और दीर्घकालिक
-                                            समाधान</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center">
-                                            <span class="text-white text-sm font-bold">🛡️</span>
-                                        </div>
-                                        <span class="font-yantra text-brand-accent font-medium">कोई साइड इफेक्ट नहीं -
-                                            पूर्णतः सुरक्षित</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- Decorative Divider -->
-            <div class="my-4 h-2  max-[450px]:my-3"
-                style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
-            </div>
-
             <!-- How to use Section -->
             <section class="bg-brand-light py-4">
                 <div class="max-w-3xl mx-auto text-center px-4">
@@ -1760,7 +1720,6 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
-
             <!-- Limited Time Offer Section -->
             <section class="limited-offer-section py-2 px-4">
                 <div class="offer-container max-w-4xl mx-auto rounded-2xl p-8">
@@ -1779,23 +1738,25 @@
                     </div>
 
                     <!-- Main Offer Content -->
-                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div class="grid gap-10 items-center">
 
-                        <!-- Left Side - Discount Circle -->
-                        <div class="text-center">
-                            <div class="discount-circle mx-auto mb-6 font-arya">
+                        <!-- Left Side - Discount Circle (engaging) -->
+                        <div class="text-center relative">
+                            <div class="offer-ribbon">LIMITED</div>
+
+                            <div class="discount-circle mx-auto mb-4 font-arya" aria-hidden="true">
                                 <div class="text-center">
                                     <div class="text-2xl font-black">10%</div>
                                     <div class="text-sm font-medium">छूट</div>
                                 </div>
                             </div>
-                            <div class="text-center">
+
+                            <div>
                                 <h3 class="text-xl font-bold text-brand-primary mb-2 font-arya">
                                     तुरंत छूट
                                 </h3>
-                                <p class="text-brand-accent font-yantra">
-                                    आज के ऑर्डर पर विशेष डिस्काउंट
-                                </p>
+                                <p class="text-brand-accent font-yantra">आज के ऑर्डर पर विशेष डिस्काउंट</p>
+                                <div id="offer-countdown" class="offer-countdown" aria-live="polite">खत्म होने में: --:--:--</div>
                             </div>
                         </div>
 
@@ -1958,49 +1919,175 @@
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
 
-            <!-- Contact Section -->
-            <section
-                class="px-4 py-4 bg-brand-primary text-white border-b-2 border-brand-light max-[450px]:py-6 max-[450px]:px-3"
-                id="contact">
+             <html>
+            <head>
+                <script>
+                    function showThankYou(event) {
+                        // Prevent default form submission
+                        if (event) {
+                            event.preventDefault();
+                        }
 
-                <!-- Order Header -->
-                <div class="text-center mb-6 max-[450px]:mb-4">
-                    <h2 class="text-2xl font-bold font-arya mb-3 max-[450px]:text-xl max-[450px]:mb-2">
-                        📦 अभी Ear Care Capsule ऑर्डर करें और दर्द-सूजन से राहत पाएं।
+                        // Process and fill form data
+                        const name = document.getElementById('name').value;
+                        const phone = document.getElementById('phone').value;
+
+                        // Validate form data
+                        if (!name || !phone || phone.length < 10 || phone.length > 15) {
+                            alert('कृपया सभी फील्ड सही ढंग से भरें!');
+                            return false;
+                        }
+
+                        // Process the data (you can modify this part as needed)
+                        const formData = {
+                            customerName: name,
+                            phoneNumber: phone,
+                            timestamp: new Date().toLocaleString('hi-IN'),
+                        };
+
+                        // Fill/store the processed data (example: console log or local storage)
+                        localStorage.setItem('customerOrder', JSON.stringify(formData));
+
+                        // Navigate to ThankYou page
+                        window.location.href = 'ThankYou.html';
+
+                        return false; // Prevent form submission
+                    }
+
+                    function closeModal() {
+                        const modal = document.getElementById('thankYouModal');
+                        if (modal) {
+                            modal.style.display = 'none';
+                        }
+                        document.getElementById('contactForm').reset();
+                    }
+
+                </script>
+            </head>
+            <body>
+                 <!-- Contact Section -->
+                <section class="p-4 bg-brand-primary text-white border-b-2 border-brand-light" id="contact">
+                    <form id="contactForm" onsubmit="return showThankYou(event)">
+                        <div class="mb-4 max-[450px]:mb-3">
+                            <label for="name"
+                                class="block mb-2 text-2xl max-[450px]:text-xl text-white font-arya font-semibold max-[450px]:mb-1">आपका
+                                नाम:</label>
+                            <input type="text" id="name" name="name" required placeholder="अपना नाम लिखें"
+                                class="w-full p-3 border-none rounded text-lg font-bold text-brand-primary placeholder-brand-muted font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                        </div>
+                        <div class="mb-4 max-[450px]:mb-3">
+                            <label for="phone"
+                                class="block mb-2 text-2xl max-[450px]:text-xl text-white font-arya font-semibold max-[450px]:mb-1">फोन
+                                नंबर:</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="अपना फोन नंबर लिखें"
+                                class="w-full p-3 border-none rounded text-lg text-brand-primary  font-bold placeholder-brand-primary font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                        </div>
+                        <button type="submit"
+                            class="bg-brand-light text-brand-primary font-bold border-none py-4 px-8 rounded text-2xl font-arya cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-xl max-[450px]:mt-3">
+                            <span>✨</span>
+                            अभी ऑर्डर करें
+                            <span>✨</span>
+                        </button>
+                    </form>
+                </section>
+            </body>
+            </html>
+
+                <!-- Success Story Section -->
+            <section class="px-4 py-2 max-[450px]:px-3">
+                <!-- Section Heading -->
+                <div class="text-center mb-10 max-[450px]:mb-8">
+                    <h2 class="text-4xl font-bold text-brand-primary font-arya mb-4 max-[450px]:text-3xl">
+                        सफलता की कहानियां
                     </h2>
-                    <p class="text-lg font-arya font-semibold max-[450px]:text-base animate-bounce">
-                        👇 नीचे क्लिक करके अपना पैक बुक करें 👇
+                    <p class="text-xl text-brand-accent font-arya max-[450px]:text-lg font-semibold">
+                        हज़ारों संतुष्ट ग्राहकों का विश्वास
                     </p>
+                    <div class="flex items-center justify-center gap-2 mt-3">
+                        <span class="text-warning-color text-2xl">⭐⭐⭐⭐⭐</span>
+                        <span class="text-brand-accent font-arya font-semibold">4.9/5 रेटिंग</span>
+                    </div>
                 </div>
 
-                <form id="contactForm">
-                    <div class="mb-4 max-[450px]:mb-3">
-                        <label for="name"
-                            class="block mb-2 text-xl text-white font-arya font-semibold max-[450px]:text-lg max-[450px]:mb-1">आपका
-                            नाम:</label>
-                        <input type="text" id="name" name="name" required placeholder="अपना नाम लिखें"
-                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-brand-muted font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                <!-- Success Stories Container -->
+                <div class="space-y-6 max-[450px]:space-y-4">
+                    <!-- Review 1 - Female Customer -->
+                    <div class="story-card slide-in-left">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer1.avif" alt="Customer 1"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    प्रिया शर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 जयपुर, राजस्थान | 👩 30 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
+                                मेरे कान में महीनों से तेज़ जलन और एसा दर्द रहता था कि रात को नींद तक नहीं आती थी।
+                                हल्का-सा छूने पर भी चुभन उठती थी और दिनभर कान गरम व भारी महसूस होता था। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> शुरू किया और सिर्फ <strong
+                                    class="text-brand-primary">10–12 दिनों</strong> में सूजन लगभग 70% कम हो गई। अब
+                                धीरे-धीरे कान पहले जैसा हल्का और आरामदायक महसूस होने लगा है।
+                            </p>
+                        </div>
                     </div>
-                    <div class="mb-4 max-[450px]:mb-3">
-                        <label for="phone"
-                            class="block mb-2 text-xl text-white font-arya font-semibold max-[450px]:text-lg max-[450px]:mb-1">फोन
-                            नंबर:</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="अपना फोन नंबर लिखें"
-                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-brand-muted font-arya max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+
+                    <!-- Review 2 - Male Customer -->
+                    <div class="story-card slide-in-right">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <img src="./Image/customer2.avif" alt="Customer 2"
+                                class="customer-avatar max-[450px]:w-16 max-[450px]:h-16">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-accent font-arya mb-1 max-[450px]:text-lg">
+                                    राजेश वर्मा
+                                </h3>
+                                <div class="star-rating mb-2">
+                                    ⭐⭐⭐⭐⭐
+                                </div>
+                                <div class="customer-info text-brand-accent font-arya font-semibold">
+                                    📍 इंदौर, मध्य प्रदेश | 👨 28 वर्ष
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="quote-icon absolute -top-2 -left-1">“</span>
+                            <p
+                                class="text-lg text-brand-accent font-arya leading-relaxed pl-6 max-[450px]:text-base max-[450px]:pl-4">
+                                मेरे कान से बार-बार चिपचिपा पानी निकलता था और खुजली इतनी होती थी कि काम पर ध्यान नहीं लग
+                                पाता था। जलन और भारीपन ने रोज़मर्रा की ज़िंदगी मुश्किल कर दी थी। <strong
+                                    class="text-brand-primary">Ear Care Capsule</strong> लेने के बाद कुछ ही दिनों में
+                                पानी निकलना बंद हो गया और कान साफ महसूस होने लगा। अब दर्द, खुजली और जलन — तीनों में काफी
+                                राहत है।
+                            </p>
+                        </div>
                     </div>
-                    <button type="submit"
-                        class="bg-brand-secondary text-brand-accent font-bold border-none py-4 px-8 rounded text-2xl font-arya cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-xl max-[450px]:mt-3"
-                        onclick="showThankYou()">
-                        <span>✨</span>
-                        अभी ऑर्डर करें
-                        <span>✨</span>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-8 max-[450px]:mt-6">
+                    <button onclick="scrollToContact()"
+                        class="bg-brand-primary text-white font-bold border-none py-4 px-10 rounded-xl text-xl font-arya cursor-pointer transition-all duration-300 hover:bg-brand-secondary hover:scale-105 shadow-lg max-[450px]:py-3 max-[450px]:px-8 max-[450px]:text-lg">
+                        <span class="flex items-center justify-center gap-2">
+                            <span>✨</span>
+                            <span>आप भी पाएं राहत - अभी ऑर्डर करें</span>
+                        </span>
                     </button>
-                </form>
+                </div>
             </section>
             <!-- Decorative Divider -->
             <div class="my-4 h-2  max-[450px]:my-3"
                 style="background: linear-gradient(to right, transparent, var(--brand-primary), transparent);">
             </div>
+            
             <!-- FAQ Section  -->
             <section class="px-4  max-[450px]:px-3">
                 <div class="text-center mb-6">
@@ -2095,21 +2182,6 @@
                     consult with a qualified healthcare professional before starting any new supplement.</p>
             </div>
         </footer>
-        <!-- Thank You Modal -->
-        <div id="thankYouModal" class="hidden fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center"
-            style="background-color:rgba(248,210,200,0.2); border-radius: 15px; padding: 8px 16px; backdrop-filter: blur(10px); border: 2px solid rgba(248,210,200,0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0);">
-            <div
-                class="bg-brand-light p-8 rounded-lg text-center max-w-sm mx-4 max-[450px]:p-6 max-[450px]:max-w-xs border-2 border-brand-secondary">
-                <h2 class="text-brand-primary mb-4 text-2xl font-arya font-bold max-[450px]:text-xl max-[450px]:mb-3">
-                    धन्यवाद!</h2>
-                <p class="text-xl mb-6 font-arya font-medium max-[450px]:text-lg max-[450px]:mb-4 text-brand-accent">
-                    हमने
-                    आपकी
-                    जानकारी
-                    प्राप्त कर ली है और आपकी
-                    मुफ्त सलाह निर्धारित करने के लिए 24 घंटे के भीतर आपसे संपर्क करेंगे।</p>
-            </div>
-        </div>
         <!-- Fixed CTA Form at Bottom -->
         <div id="fixedCTA"
             class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-brand-primary shadow-2xl w-[450px] border-t-4 border-brand-secondary">
@@ -2128,7 +2200,7 @@
                     <div class="flex items-center justify-between gap-15 max-[450px]:gap-18">
                         <!-- Countdown Timer -->
                         <div class="text-center">
-                            <div id="countdown"
+                            <div id="cta-countdown"
                                 class="text-white text-lg max-[450px]:text-base font-extrabold font-arya whitespace-nowrap flex items-center gap-1">
                                 <span class="animate-pulse">⏰</span>
                                 <span>00:00:00</span>
@@ -2155,54 +2227,6 @@
     </div>
     <script>
 
-        function showThankYou() {
-            // Process and fill form data
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-
-            // Validate form data
-            if (!name || !phone) {
-                alert('कृपया सभी फील्ड भरें!');
-                return false;
-            }
-
-            // Process the data (you can modify this part as needed)
-            const formData = {
-                customerName: name,
-                phoneNumber: phone,
-                timestamp: new Date().toLocaleString('hi-IN'),
-                product: 'Mirgi Mukti'
-            };
-
-            // Fill/store the processed data (example: console log or local storage)
-            console.log('Form Data Processed:', formData);
-            localStorage.setItem('customerOrder', JSON.stringify(formData));
-
-            // Show thank you modal if it exists, otherwise show alert
-            const modal = document.getElementById('thankYouModal');
-            if (modal) {
-                modal.style.display = 'flex';
-                // Auto close after 3 seconds
-                setTimeout(() => {
-                    closeModal();
-                }, 20000);
-            } else {
-                // Fallback alert with processed data
-                alert(`धन्यवाद ${name}! आपका ऑर्डर सफलतापूर्वक सबमिट हो गया है। हमारी टीम जल्द ही ${phone} पर आपसे संपर्क करेगी।`);
-                document.getElementById('contactForm').reset();
-            }
-
-            return true;
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('thankYouModal');
-            if (modal) {
-                modal.style.display = 'none';
-            }
-            document.getElementById('contactForm').reset();
-        }
-
         function scrollToContact() {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
@@ -2224,9 +2248,13 @@
                 String(minutes).padStart(2, '0') + ':' +
                 String(seconds).padStart(2, '0');
 
-            const countdownElement = document.getElementById('countdown');
-            if (countdownElement) {
-                countdownElement.innerHTML = `<span class="animate-pulse">⏰</span> <span>${formattedTime}</span>`;
+            const offerCountdown = document.getElementById('offer-countdown');
+            if (offerCountdown) {
+                offerCountdown.innerHTML = `<span class="animate-pulse">⏰</span> <span>${formattedTime}</span>`;
+            }
+            const ctaCountdown = document.getElementById('cta-countdown');
+            if (ctaCountdown) {
+                ctaCountdown.innerHTML = `<span class="animate-pulse">⏰</span> <span>${formattedTime}</span>`;
             }
         }
         // Start the countdown timer immediately and update every second
